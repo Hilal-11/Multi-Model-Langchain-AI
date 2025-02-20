@@ -1,12 +1,15 @@
 import React from "react";
 import { motion } from "motion/react";
 import AI_Logos from "./AI_Logos";
-
+import { useNavigate } from "react-router-dom";
 
 
 function Main() {
+
+
+    const navigate = useNavigate('')
     return (
-        <div className="px-2 w-full py-4 lg:py-10 flex items-start flex-wrap">
+        <div className="px-2 w-full py-10 lg:py-10 flex items-start flex-wrap">
             <div className="w-full">
                 <motion.h1
                     initial={{
@@ -65,13 +68,15 @@ function Main() {
                     }}
                     transition={{
                         duration: 1.5,
-                        delay: 1.0
+                        delay: 4.5
                     }}
         
                 className=" relative lg:w-[40%] w-[80%] text-xl py-4 rounded-xl bg-black shadow-md shadow-cyan-800 cursor-pointer poppins-medium"
                     style={{
                         boxShadow: '1px 1px 4px oklch(0.45 0.085 224.283), -1px -1px 4px oklch(0.45 0.085 224.283)'
                     }}
+
+                    onClick={() => {navigate('/models')}}
                 >Get Started
                     
                 </motion.button> 
@@ -80,7 +85,3 @@ function Main() {
     )
 }
 export default Main
-
-
-{/* <span className='inline-block absolute inset-x-0 left-5 top-0 bg-gradient-to-r from-yellow-500 via-orange-500 to-transparent h-[1px] w-3/4'></span> */}
-                    {/* <span className='inline-block absolute inset-x-0 bottom-0 -right-10 mx-auto bg-gradient-to-r from-transparent via-orange-500 to-red-500 h-[1px] w-3/4'></span> */}
