@@ -2,11 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import AI_Logos from "./AI_Logos";
 import { useNavigate } from "react-router-dom";
-
-
 function Main() {
-
-
     const navigate = useNavigate('')
     return (
         <div className="px-2 w-full py-10 lg:py-10 flex items-start flex-wrap">
@@ -46,7 +42,7 @@ function Main() {
                             duration: 1.5,
                             delay: 1.0
                         }}
-                    className="lg:px-40 px-4 lg:text-xl text-md text-gray-400 absolute top-16 left-0 text-justify poppins-thin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ad ipsum laboriosam voluptatem quisquam, harum tenetur dicta numquam eius ut impedit accusamus fugiat in beatae pariatur! Ad nostrum minima, dolores impedit liberol lorem</motion.p>
+                    className="lg:px-40 px-4 lg:text-xl text-md text-gray-400 absolute top-8 left-0 text-justify poppins-regular">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ad ipsum laboriosam voluptatem quisquam, harum tenetur dicta numquam eius ut impedit accusamus fugiat in beatae pariatur! Ad nostrum minima, dolores impedit liberol lorem</motion.p>
                 </div>
 
             </div>

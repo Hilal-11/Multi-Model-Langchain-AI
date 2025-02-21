@@ -1,13 +1,8 @@
-import React, { useState } from "react";
 import { motion } from "motion/react";
-import Button from "../Buttons/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const AImodels = () => {
-     
-    const navigate = useNavigate('')
-
     return (
-        <div className="lg:h-svh*2 w-full py-5 lg:py-10" >
+        <div className="w-full py-5 lg:py-10">
             <motion.span
                 initial={{
                     opacity: 0
@@ -53,9 +48,7 @@ const AImodels = () => {
                     delay:1
                 }}
                 className="relative grid lg:grid-cols-3 grid-cols-2 lg:gap-10 gap-4 lg:py-10 py-6 text-white px-3 justify-between">
-            
-
-
+    
                 <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
                >ChatGPT</div></Link>
                 <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
@@ -80,10 +73,7 @@ const AImodels = () => {
                 >Delle-E</div></Link>
                 <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
                 >Mistrial</div></Link>
-
-
             </motion.div>
-
         </div>
     )
 }
