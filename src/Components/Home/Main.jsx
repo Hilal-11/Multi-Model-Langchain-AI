@@ -24,7 +24,7 @@ function Main() {
                 style={{
                     textShadow: '3px 3px 7px gray'
                 }}
-                >Wel Come to Multimodel  LangChain Artifical Intellegence</motion.h1>
+                >Wel Come to Multimodel DeepNexus LangChain AI</motion.h1>
                 
                 
                 <div className="px-2 relative">
