@@ -20,7 +20,7 @@ function Main() {
                         duration: 1.5,
                         delay: 1.0
                     }}            
-                className="text-4xl lg:text-8xl poppins-extrabold text-white shadow-2xl text-center break-words whitespace-break-spaces"
+                className="text-4xl lg:text-8xl poppins-extrabold text-white text-center break-words whitespace-break-spaces"
                 style={{
                     textShadow: '3px 3px 7px gray'
                 }}
@@ -42,7 +42,7 @@ function Main() {
                             duration: 1.5,
                             delay: 1.0
                         }}
-                    className="lg:px-40 px-4 lg:text-xl text-md text-gray-400 absolute top-8 left-0 text-justify poppins-regular">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ad ipsum laboriosam voluptatem quisquam, harum tenetur dicta numquam eius ut impedit accusamus fugiat in beatae pariatur! Ad nostrum minima, dolores impedit liberol lorem</motion.p>
+                    className="lg:px-40 px-4 lg:text-xl text-md text-gray-500 absolute top-8 left-0 text-justify poppins-regular">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ad ipsum laboriosam voluptatem quisquam, harum tenetur dicta numquam eius ut impedit accusamus fugiat in beatae pariatur! Ad nostrum minima, dolores impedit liberol lorem</motion.p>
                 </div>
 
             </div>
