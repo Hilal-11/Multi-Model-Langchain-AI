@@ -6,6 +6,9 @@ import deepseek from '../../assets/svg/deepseek.png'
 import midJ from '../../assets/svg/midJourney.webp'
 import mistrial from '../../assets/svg/mistrial.png'
 import perplexity from '../../assets/svg/perplexity.webp'
+import copilot from '../../assets/svg/copilot.png'
+
+
 
 const AImodels = () => {
     return (
@@ -58,20 +61,20 @@ const AImodels = () => {
     
                 <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
                > <img src={gpt} alt="error" />ChatGPT</div></Link>
-                <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
+                <Link to={'/gameni'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
                 > <img src={gamini} alt="error" />Google Gamini</div></Link>
-                <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
+                <Link to={'/deepseek'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
                 > <img className="lg:w-[400px]" src={deepseek} alt="error" />Deepseek</div></Link>  
-                <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
-                > <img src={midJ} alt="error" />Mid-Journey</div></Link>
-                <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
-                > <img src={gpt} alt="error" />Copolot</div></Link>
-                <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
-                > <img src={perplexity} alt="error" />Preplixity</div></Link>
-                <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
-                > <img src={gpt} alt="error" />Delle-E</div></Link>
-                <Link to={'/chatGpt'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
+                <Link to={'/copilot'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
+                > <img src={copilot} alt="error" />Copolot</div></Link>
+                <Link to={'/mistrial'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
                 > <img src={mistrial} alt="error" />Mistrial</div></Link>
+                <Link to={'/perplexity'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
+                > <img src={perplexity} alt="error" />Preplixity</div></Link>
+                <Link to={'/midjourney'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
+                > <img src={midJ} alt="error" />Midjourney</div></Link>
+                <Link to={'/dalle'}><div className="bg-black shadow-md ring-1 ring-gray-800 rounded-xl lg:text-3xl text-sm text-center poppins-extrabold lg:py-12 py-4 lg:px-10 px-4 cursor-pointer hover:bg-gray-900 duration-500" 
+                > <img src={gpt} alt="error" />Dell.E2</div></Link>
             </motion.div>
             <div className="flex justify-center text-gray-600 poppins-extrabold text-xs lg:text-xl">
                 <p>Developed by Hilal</p>
@@ -80,3 +83,5 @@ const AImodels = () => {
     )
 }
 export default AImodels
+
+// dalle
