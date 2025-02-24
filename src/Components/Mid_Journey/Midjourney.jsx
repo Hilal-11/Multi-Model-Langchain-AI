@@ -1,8 +1,22 @@
 import React from "react";
+import Header from "../ChatUiComponent/Header";
+import ChatBox from "../ChatUiComponent/ChatBox";
+import UserGreeting from "../ChatUiComponent/UserGreeting";
 const Midjourney = () => {
     return (
         <div>
-            <h1>Midjourney</h1>
+            {/* Header */}
+            <div className="text-white">
+                <Header/>
+            </div>
+            {/* Quries secession */}
+            <div className="py-10 lg:py-20">
+                <UserGreeting/>
+            </div>
+            {/* search box */}
+            <div>
+                <ChatBox placeholder={"Enter prompt for ganerating images :-"}/>
+            </div>
         </div>
     )
 }

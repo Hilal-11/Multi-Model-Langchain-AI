@@ -15,7 +15,7 @@ const ChatGpt = () => {
             </div>
             {/* search box */}
             <div>
-                <ChatBox/>
+                <ChatBox placeholder={"Ask anything to Gpt-4.0:- "}/>
             </div>
         </div>
     )
