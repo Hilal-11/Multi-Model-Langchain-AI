@@ -67,14 +67,9 @@ function Main() {
                         delay: 4.5
                     }}
         
-                className=" relative lg:w-[40%] w-[80%] text-xl py-4 rounded-xl bg-black shadow-md shadow-cyan-800 cursor-pointer poppins-medium"
-                    style={{
-                        boxShadow: '1px 1px 4px oklch(0.45 0.085 224.283), -1px -1px 4px oklch(0.45 0.085 224.283)'
-                    }}
-
+                className=" relative lg:w-[40%] w-[80%] text-xl py-4 rounded-xl bg-black shadow-inner shadow-gray-500 cursor-pointer poppins-medium"
                     onClick={() => {navigate('/models')}}
                 >Get Started
-                    
                 </motion.button> 
             </div>
         </div>

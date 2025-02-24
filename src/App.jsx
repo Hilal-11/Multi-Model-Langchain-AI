@@ -10,7 +10,7 @@ import Perplexity from "./Components/Perplexity/Perplexity";
 import Mistrial from "./Components/Mistrial/Mistrial";
 import Midjourney from "./Components/Mid_Journey/Midjourney";
 import Dalle from "./Components/Dalle/Dalle";
-
+import Donate from "./Components/Donate/Donate";
 const App = () => {
   return (  
       <div className="lg:w-[100%] min-h-screen lg:h-auto x-auto bg-black text-white"
@@ -31,6 +31,7 @@ const App = () => {
               <Route path="/mistrial" element={<Mistrial/>}></Route>
               <Route path="/midjourney" element={<Midjourney/>}></Route>
               <Route path="/dalle" element={<Dalle/>}></Route>
+              <Route path="/donate" element={<Donate/>}></Route>
             </Routes>
           </div>
       </div>

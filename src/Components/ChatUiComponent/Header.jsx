@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import MenuIcon from '@mui/icons-material/Menu';
 import { IconBase } from "react-icons/lib";
 import CloseIcon from '@mui/icons-material/Close';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import {queries} from '../Store/Config'
+import { MdQuestionAnswer } from "react-icons/md";
+import { HiOutlineDotsVertical } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
+
+    const navigate = useNavigate('')
+
     const [isOpenMenu , setIsOpenMenu] = useState(false)
     const handleMobileMenu = () => {
         setIsOpenMenu(!isOpenMenu)
@@ -24,13 +31,24 @@ const Header = () => {
                                 <CloseIcon/>
                             </IconBase>
                         </div>
-                        <div className="my-14 flex-row px-2 py-4 space-y-4">
+                        <motion.div
+
+                            exit={{
+                                opacity: 0,
+                                scale: 0.98,
+                                filter: 'blur(20px)'
+                            }}
+                            transition={{
+                                duration: 0.5,
+                                ease: 'easeInOut'
+                            }}
+                        className="my-12 flex-row px-2 py-4 space-y-3">
                             {
                                 queries.map((userQuery , index) => (
-                                    <p className="bg-neutral-950 cursor-pointer px-2 py-2 rounded-md  poppins-regular text-white text-[11px] lg:text-sm">{userQuery}</p>
+                                   <p className="flex gap-3 justify-between  items-center bg-neutral-950 cursor-pointer px-2 py-2 rounded-md  poppins-regular text-white text-[11px] lg:text-sm"><span className="text-2xl"><MdQuestionAnswer/></span>{userQuery}<span className="text-2xl"><HiOutlineDotsVertical/></span></p>
                                 ))
                             }
-                        </div>
+                        </motion.div>
                     </div>
                 )
             }
@@ -60,7 +78,9 @@ const Header = () => {
                 </div>
                 <div>
                     <div className="text-white poppins-light text-xs lg:text-md ">
-                        <button className="cursor-pointer rounded-sm px-2 py-1 bg-black shadow-inner shadow-gray-500 ">Donate</button>
+                        <button
+                        onClick={() => navigate('/donate')}
+                        className="cursor-pointer rounded-sm px-2 py-1 bg-black shadow-inner shadow-gray-500 ">Donate</button>
                     </div>
                 </div>
             </motion.div>

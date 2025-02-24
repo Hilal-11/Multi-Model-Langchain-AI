@@ -77,7 +77,7 @@ const AImodels = () => {
                 > <img src={gpt} alt="error" />Dell.E2</div></Link>
             </motion.div>
             <div className="flex justify-center text-gray-600 poppins-extrabold text-xs lg:text-xl">
-                <p>Developed by Hilal</p>
+                <p className="bg-linear-to-r from-blue-300 via-blue-600 to-blue-700 text-transparent bg-clip-text">Developed by Hilal</p>
             </div>
         </div>
     )
