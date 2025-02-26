@@ -8,7 +8,6 @@ import {queries} from '../Store/Config'
 import { MdQuestionAnswer } from "react-icons/md";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-
 const Header = () => {
     const navigate = useNavigate('')
     const [isOpenMenu , setIsOpenMenu] = useState(false)
@@ -44,9 +43,9 @@ const Header = () => {
                         className="my-12 flex-row px-2 py-4 space-y-3">
                             {
                                 queries.map((userQuery , index) => (
-                                   <p key={index} className="relative flex gap-3 justify-between  items-center bg-neutral-950 cursor-pointer px-2 py-2 rounded-md  poppins-regular text-white text-[11px] lg:text-sm"><span className="text-2xl"><MdQuestionAnswer/></span>{userQuery}<span className="text-2xl"><HiOutlineDotsVertical onClick={ () => setIsOpenQuaryIcon(!isOpenQuaryIcon) } /></span>  
+                                   <p key={index} className=" flex gap-3 justify-between  items-center bg-neutral-950 cursor-pointer px-2 py-2 rounded-md  poppins-regular text-white text-[11px] lg:text-sm"><span className="text-2xl"><MdQuestionAnswer/></span>{userQuery}<span className="text-2xl"><HiOutlineDotsVertical onClick={  () => setIsOpenQuaryIcon(!isOpenQuaryIcon) } /></span>  
                                     {
-                                        isOpenQuaryIcon &&  <div className="z-50 space-y-1 absolute right-7 top-6 bg-black px-2 py-2 rounded-md">
+                                        isOpenQuaryIcon &&  <div className="z-50 space-y-1 absolutev nm,./ right-7 top-6 bg-black px-2 py-2 rounded-md">
                                         <p className="text-red-600 poppins-ragular bg-gray-950 px-2 py-1 rounded-sm">Remove</p>
                                     </div>                                   
                                     }
