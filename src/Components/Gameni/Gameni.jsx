@@ -1,10 +1,56 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../ChatUiComponent/Header";
 import ChatBox from "../ChatUiComponent/ChatBox";
 import UserGreeting from "../ChatUiComponent/UserGreeting";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { motion } from "motion/react";
+import { IoSendSharp } from "react-icons/io5";
 const Gameni = () => {
 
-    const [response , setResponse] = useState(false)
+
+    const [response, setResponse] = useState(false);
+    const [generatedContent, setGeneratedContent] = useState('');
+
+    // Implementation of Google Gameni to get a response and render it on page for end users 
+
+    const genAI = new GoogleGenerativeAI("AIzaSyAk0xNnr_cL6WADMqhRilUrakGI839EdeQ");
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    
+    const generateResponse = async () => {
+        setResponse(false)
+        const prompt = "Explain AI, ML and DL with examples";
+        try{
+            const result = await model.generateContent(prompt);
+            setGeneratedContent(result.response.text())
+            setResponse(true)
+        }catch (error) {
+            console.error("Error generating content:", error);
+        }
+    }
+
+    useEffect(() => {   
+        generateResponse()
+    } , [])
+
+    console.log(generatedContent)
+
+
+
+    const [isSend , setIsSend] = useState(false)
+    const [userInput , setUserInput] = useState('')
+    const handleUserInput = (event) => {
+        setUserInput(event.target.value)
+        setIsSend(true)
+    }
+    const handleSendUserInput = () => {
+        setUserInput('')
+        setIsSend(false)
+    console.log(userInput)
+
+
+
+
+
 
     return (
         <div className="">
@@ -15,12 +61,10 @@ const Gameni = () => {
             {/* Quries secession */}
             <div className="py-5 lg:py-20">
                 {
-                    (response === true ) ? (<UserGreeting/>) : (<div className="">
+                    (response === false ) ? (<UserGreeting/>) : (<div className="">
                         <div className=" rounded-xl py-6 px-4">
                             <p className="text-[14px] lg:text-[16px] poppins-regular">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio quis harum suscipit quod corporis cupiditate fugit impedit velit provident inventore nostrum, porro possimus, incidunt aliquam voluptatem unde, consectetur vero laboriosam? Dolore iure beatae unde. Necessitatibus sunt reprehenderit quasi qui magni? <br /> <br /> Provident temporibus tenetur explicabo debitis optio, laborum culpa, fugiat aut labore totam maxime vitae ut corrupti dicta ipsa magnam libero suscipit inventore quis odio quibusdam at. Architecto iusto corporis non cumque et, necessitatibus natus unde cum eveniet, veniam officia, accusamus quisquam! Laboriosam accusantium, <br /> laudantium tenetur quam sed placeat dolores eveniet nobis, temporibus itaque nihil <br /> <br /> eius architecto perferendis necessitatibus eaque iste pariatur modi suscipit doloremque rerum cupiditate explicabo eum? Quia velit modi enim praesentium nisi! Tempora accusantium perferendis, illum quas vitae <br /> <br /> veritatis porro odit, eius fugiat earum natus. Minima, minus corrupti! Laborum eos aliquam officiis porro quo ad nihil alias tempora. Natus facere minima consequatur commodi sapiente pariatur, voluptate temporibus similique eum soluta quas<br /> <br />  itaque error perferendis delectus placeat autem eligendi. Culpa eos nihil iure recusandae quaerat maiores, voluptatibus repudiandae delectus explicabo. Asperiores earum saepe dicta sunt facere veniam pariatur voluptas sed iusto mollitia voluptate delectus minima, perferendis unde! Dicta, itaque voluptates totam culpa quisquam id explicabo soluta eum voluptatem sit?
-                                <br /><br />
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio quis harum suscipit quod corporis cupiditate fugit impedit velit provident inventore nostrum, porro possimus, incidunt aliquam voluptatem unde, consectetur vero laboriosam? Dolore iure beatae unde. Necessitatibus sunt reprehenderit quasi qui magni? <br /> <br /> Provident temporibus tenetur explicabo debitis optio, laborum culpa, fugiat aut labore totam maxime vitae ut corrupti dicta ipsa magnam libero suscipit inventore quis odio quibusdam at. Architecto iusto corporis non cumque et, necessitatibus natus unde cum eveniet, veniam officia, accusamus quisquam! Laboriosam accusantium, <br /> laudantium tenetur quam sed placeat dolores eveniet nobis, temporibus itaque nihil <br /> <br /> eius architecto perferendis necessitatibus eaque iste pariatur modi suscipit doloremque rerum cupiditate explicabo eum? Quia velit modi enim praesentium nisi! Tempora accusantium perferendis, illum quas vitae <br /> <br /> veritatis porro odit, eius fugiat earum natus. Minima, minus corrupti! Laborum eos aliquam officiis porro quo ad nihil alias tempora. Natus facere minima consequatur commodi sapiente pariatur, voluptate temporibus similique eum soluta quas<br /> <br />  itaque error perferendis delectus placeat autem eligendi. Culpa eos nihil iure recusandae quaerat maiores, voluptatibus repudiandae delectus explicabo. Asperiores earum saepe dicta sunt facere veniam pariatur voluptas sed iusto mollitia voluptate delectus minima, perferendis unde! Dicta, itaque voluptates totam culpa quisquam id explicabo soluta eum voluptatem sit?
+                                {generatedContent}
                             </p>
                         </div>
                     </div>)
@@ -28,10 +72,38 @@ const Gameni = () => {
                 }
             </div>
             {/* search box */}
-            <div>
-                <ChatBox placeholder={"Ask anything to Gameni:- "}/>
-            </div>
+                
+            <motion.div
+                initial={{
+                    opacity: 0,
+                    y: 100
+                }}
+                animate={{
+                    opacity: 1,
+                    y: 0
+                }}  
+                transition={{
+                    duration: 1.5
+                }}
+            className="w-full mx-auto fixed lg:bottom-12 bottom-4 rounded-xl px-2">
+                <div className="">
+                    <div className="relative  text-white poppins-regular w-[100%] lg:w-[80%]">
+                        <textarea
+                            value={userInput}
+                            onChange={ handleUserInput }
+                            name="userInput"
+                            type="text" 
+                            className="py-4 resize-none bg-black ring-1 ring-gray-800 lg:h-[100px] h-[100px] w-full lg:w-[100%] md:w-[100%] rounded-3xl px-3" 
+                            placeholder="Ask to Gemini:- " />
+                        {
+                            isSend && <button
+                            onClick={ handleSendUserInput }
+                            className=" absolute z-50 right-6 top-9"><IoSendSharp className="text-2xl lg:text-3xl cursor-pointer" /></button>
+                        }
+                    </div>
+                </div>
+            </motion.div>  
         </div>
     )
-}
+}}
 export default Gameni

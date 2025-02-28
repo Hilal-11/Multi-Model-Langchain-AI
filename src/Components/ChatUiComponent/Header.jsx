@@ -21,7 +21,7 @@ const Header = () => {
             {/* Mobile munu */}
             {
                 (isOpenMenu) && (
-                    <div className="z-50 fixed lg:w-[20%] left-0 w-[80%] h-screen overflow-y-auto bg-black z-50 shadow-2xl shadow-gray-900">
+                    <div className="z-50 fixed lg:w-[20%] left-0 w-[80%] h-screen overflow-y-auto bg-black shadow-2xl shadow-gray-900">
                         <div className=" lg:w-[20%] w-[80%] fixed text-white text-2xl lg:text-3xl cursor-pointer flex justify-between py-3 px-3 bg-neutral-950">
                             <IconBase className="">
                                 <ImportContactsIcon/>
