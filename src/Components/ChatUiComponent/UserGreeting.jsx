@@ -18,7 +18,7 @@ const UserGreeting = () => {
                         duration: 1,
                         delay: 1
                     }}
-                className="text-center poppins-bold lg:text-8xl text-4xl bg-linear-to-r from-blue-300 via-blue-600 to-slate-950 text-transparent bg-clip-text">Hello Rio</motion.h1>
+                className="my-8 text-center poppins-bold lg:text-8xl text-4xl bg-linear-to-r from-blue-300 via-blue-600 to-slate-950 text-transparent bg-clip-text">Hello Rio</motion.h1>
                 <h1 className="text-white poppins-bold lg:text-4xl text-2xl py-4">How can i help you</h1> <br />
 
             </div>

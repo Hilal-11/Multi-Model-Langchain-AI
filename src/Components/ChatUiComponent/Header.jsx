@@ -21,7 +21,7 @@ const Header = () => {
             {/* Mobile munu */}
             {
                 (isOpenMenu) && (
-                    <div className="fixed lg:w-[20%] left-0 w-[80%] h-screen overflow-y-auto bg-black z-50 shadow-2xl shadow-gray-900">
+                    <div className="z-50 fixed lg:w-[20%] left-0 w-[80%] h-screen overflow-y-auto bg-black z-50 shadow-2xl shadow-gray-900">
                         <div className=" lg:w-[20%] w-[80%] fixed text-white text-2xl lg:text-3xl cursor-pointer flex justify-between py-3 px-3 bg-neutral-950">
                             <IconBase className="">
                                 <ImportContactsIcon/>
@@ -56,20 +56,10 @@ const Header = () => {
                     </div>
                 )
             }
-            <motion.div
-                initial={{
-                    opacity: 0,
-                    y: -20
-                }}
-                animate={{
-                    opacity: 1,
-                    y: 0
-                }}
-                transition={{
-                    duration: 1.5
-                }}
+            <div
+               
             className="relative">
-                <div className="w-full h-auto fixed -top-1 flex justify-between px-2 lg:py-5 items-center py-3 bg-zinc-950 lg:bg-transparent">
+                <div className="z-40 w-full lg:w-[80%] mx-auto h-auto fixed -top-1 flex justify-between px-2 lg:py-5 items-center py-3 bg-zinc-950 lg:bg-black lg:rounded-full lg:px-20 lg:my-5">
                     <div className="text-white text-2xl lg:text-4xl cursor-pointer">
                         <IconBase onClick={ handleMobileMenu }>
                             <MenuIcon/>
@@ -80,13 +70,13 @@ const Header = () => {
                             DeepNexus 
                         </div>
                     </div>
-                    <div className="text-white poppins-light text-xs lg:text-md ">
+                    <div className="text-white poppins-light text-xs ">
                         <button
                         onClick={() => navigate('/donate')}
                         className="cursor-pointer rounded-sm px-2 py-1 bg-black shadow-inner shadow-gray-500 ">Donate</button>
                     </div>
                 </div>
-            </motion.div>
+            </div>
         </div>
     )
 }
