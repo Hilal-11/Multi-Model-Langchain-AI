@@ -22,7 +22,7 @@ const Header = () => {
             {
                 (isOpenMenu) && (
                     <div className="fixed lg:w-[20%] left-0 w-[80%] h-screen overflow-y-auto bg-black z-50 shadow-2xl shadow-gray-900">
-                        <div className="lg:w-[20%] w-[80%] fixed text-white text-2xl lg:text-3xl cursor-pointer flex justify-between py-3 px-3 bg-neutral-950">
+                        <div className=" lg:w-[20%] w-[80%] fixed text-white text-2xl lg:text-3xl cursor-pointer flex justify-between py-3 px-3 bg-neutral-950">
                             <IconBase className="">
                                 <ImportContactsIcon/>
                             </IconBase>
@@ -68,18 +68,18 @@ const Header = () => {
                 transition={{
                     duration: 1.5
                 }}
-            className="flex justify-between px-2 lg:py-5 py-2 items-center">
-                <div className="text-white text-2xl lg:text-4xl cursor-pointer">
-                    <IconBase onClick={ handleMobileMenu }>
-                        <MenuIcon/>
-                    </IconBase>
-                </div>
-                <div>
-                    <div className="poppins-bold text-white lg:text-4xl">
-                        DeepNexus 
+            className="relative">
+                <div className="w-full h-auto fixed -top-1 flex justify-between px-2 lg:py-5 items-center py-3 bg-zinc-950 lg:bg-transparent">
+                    <div className="text-white text-2xl lg:text-4xl cursor-pointer">
+                        <IconBase onClick={ handleMobileMenu }>
+                            <MenuIcon/>
+                        </IconBase>
                     </div>
-                </div>
-                <div>
+                    <div>
+                        <div className="poppins-bold text-white lg:text-4xl">
+                            DeepNexus 
+                        </div>
+                    </div>
                     <div className="text-white poppins-light text-xs lg:text-md ">
                         <button
                         onClick={() => navigate('/donate')}
