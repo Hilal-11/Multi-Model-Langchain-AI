@@ -8,7 +8,7 @@ import { IoSendSharp } from "react-icons/io5";
 const Gameni = () => {
 
 
-    const [response, setResponse] = useState(false);
+    // const [response, setResponse] = useState(false);
     const [generatedContent, setGeneratedContent] = useState('');
 
     // Implementation of Google Gameni to get a response and render it on page for end users 
@@ -17,12 +17,10 @@ const Gameni = () => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     
     const generateResponse = async () => {
-        setResponse(false)
         const prompt = "Explain AI, ML and DL with examples";
         try{
             const result = await model.generateContent(prompt);
             setGeneratedContent(result.response.text())
-            setResponse(true)
         }catch (error) {
             console.error("Error generating content:", error);
         }
@@ -60,16 +58,12 @@ const Gameni = () => {
             </div> <br />
             {/* Quries secession */}
             <div className="py-5 lg:py-20">
-                {
+                
                     (response === false ) ? (<UserGreeting/>) : (<div className="">
-                        <div className=" rounded-xl py-6 px-4">
-                            <p className="text-[14px] lg:text-[16px] poppins-regular">
-                                {generatedContent}
-                            </p>
-                        </div>
+                        
                     </div>)
                     
-                }
+                
             </div>
             {/* search box */}
                 
