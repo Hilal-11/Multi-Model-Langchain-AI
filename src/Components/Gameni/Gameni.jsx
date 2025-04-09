@@ -30,7 +30,7 @@ const Gameni = () => {
         generateResponse()
     } , [])
 
-    console.log(generatedContent)
+    
 
 
 
@@ -45,6 +45,8 @@ const Gameni = () => {
         setIsSend(false)
     console.log(userInput)
 
+    console.log(generatedContent)
+
 
 
 
@@ -56,17 +58,7 @@ const Gameni = () => {
             <div className="text-white py-1 ">
                 <Header/>
             </div> <br />
-            {/* Quries secession */}
-            <div className="py-5 lg:py-20">
-                
-                    (response === false ) ? (<UserGreeting/>) : (<div className="">
-                        
-                    </div>)
-                    
-                
-            </div>
-            {/* search box */}
-                
+         
             <motion.div
                 initial={{
                     opacity: 0,
