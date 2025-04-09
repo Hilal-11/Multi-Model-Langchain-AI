@@ -7,8 +7,9 @@ import { motion } from "motion/react";
 import { IoSendSharp } from "react-icons/io5";
 const Gameni = () => {
 
-
-    // const [response, setResponse] = useState(false);
+    const [isSend , setIsSend] = useState(false)
+    const [userInput , setUserInput] = useState('')
+    const [response, setResponse] = useState(false);
     const [generatedContent, setGeneratedContent] = useState('');
 
     // Implementation of Google Gameni to get a response and render it on page for end users 
@@ -17,7 +18,7 @@ const Gameni = () => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     
     const generateResponse = async () => {
-        const prompt = "Explain AI, ML and DL with examples";
+        const prompt = "What is LLMS and MCP Servers deeply explaination";
         try{
             const result = await model.generateContent(prompt);
             setGeneratedContent(result.response.text())
@@ -28,14 +29,13 @@ const Gameni = () => {
 
     useEffect(() => {   
         generateResponse()
+        setResponse(true)
     } , [])
 
     
 
 
 
-    const [isSend , setIsSend] = useState(false)
-    const [userInput , setUserInput] = useState('')
     const handleUserInput = (event) => {
         setUserInput(event.target.value)
         setIsSend(true)
@@ -43,22 +43,33 @@ const Gameni = () => {
     const handleSendUserInput = () => {
         setUserInput('')
         setIsSend(false)
-    console.log(userInput)
+    }
+
 
     console.log(generatedContent)
 
 
 
-
-
-
     return (
-        <div className="">
+
+        <div>
             {/* Header */}
-            <div className="text-white py-1 ">
+            <div className="text-white">
                 <Header/>
-            </div> <br />
-         
+            </div>
+            {/* Quries secession */}
+            <div className="py-20 px-6 lg:py-40 lg:px-10">
+                    {response ? (
+                        <div>
+                            <p className="text-[14px]">{generatedContent}</p>
+                        </div>
+                    ) : (
+                        <div>
+                            <UserGreeting/>
+                        </div>
+                    )}
+            </div>
+            {/* search box */}
             <motion.div
                 initial={{
                     opacity: 0,
@@ -81,6 +92,7 @@ const Gameni = () => {
                             type="text" 
                             className="py-4 resize-none bg-black ring-1 ring-gray-800 lg:h-[100px] h-[100px] w-full lg:w-[100%] md:w-[100%] rounded-3xl px-3" 
                             placeholder="Ask to Gemini:- " />
+                        
                         {
                             isSend && <button
                             onClick={ handleSendUserInput }
@@ -91,5 +103,5 @@ const Gameni = () => {
             </motion.div>  
         </div>
     )
-}}
+}
 export default Gameni
