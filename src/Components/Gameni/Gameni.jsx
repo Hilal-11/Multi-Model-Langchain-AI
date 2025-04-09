@@ -5,12 +5,15 @@ import UserGreeting from "../ChatUiComponent/UserGreeting";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { motion } from "motion/react";
 import { IoSendSharp } from "react-icons/io5";
+import Loader from "../Loader";
 const Gameni = () => {
 
+    const [isLoading , setIsLoading] = useState(true)
     const [isSend , setIsSend] = useState(false)
     const [userInput , setUserInput] = useState('')
     const [response, setResponse] = useState(false);
     const [generatedContent, setGeneratedContent] = useState('');
+    const [userPrompt , setUserPrompt] = useState(null)
 
     // Implementation of Google Gameni to get a response and render it on page for end users 
 
@@ -18,7 +21,8 @@ const Gameni = () => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     
     const generateResponse = async () => {
-        const prompt = "Explain Quntam Computer and how it works , how it's different than classical computers deeply explaination.";
+        const prompt = userPrompt;
+        console.log(prompt)
         try{
             const result = await model.generateContent(prompt);
             setGeneratedContent(result.response.text())
@@ -29,20 +33,19 @@ const Gameni = () => {
 
     useEffect(() => {   
         generateResponse()
-        setResponse(false)
+        
     } , [])
 
-    
-
     console.log(generatedContent)
-
     const handleUserInput = (event) => {
         setUserInput(event.target.value)
         setIsSend(true)
     }
     const handleSendUserInput = () => {
+        setUserPrompt(userInput)
         setUserInput('')
         setIsSend(false)
+        setResponse(true)
     }
 
 
@@ -121,7 +124,8 @@ const Gameni = () => {
                     </div>
                 ) : (
                     <div>
-                        <UserGreeting />
+                        {/* <UserGreeting /> */}
+                        <Loader />
                     </div>
                 )}
             </div>
