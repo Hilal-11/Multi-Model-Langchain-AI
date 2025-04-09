@@ -29,7 +29,7 @@ const Gameni = () => {
 
     useEffect(() => {   
         generateResponse()
-        setResponse(true)
+        setResponse(false)
     } , [])
 
     
@@ -54,15 +54,15 @@ const Gameni = () => {
                 <Header/>
             </div>
             {/* Quries secession */}
-            <div className="py-10 px-2 lg:py-30 lg:px-10">
+            <div className="py-10 px-2 lg:py-30 lg:px-10 ">
                 {response ? (
-                    <div className="p-6 rounded-lg shadow-lg ">
-                        <div className="text-white poppins-regular text-sm lg:text-base leading-relaxed">
-                            {generatedContent.split("\n").map((line, index) => {
+                    <div className="my-4 p-6 rounded-lg bg-zinc-950 shadow-lg ">
+                        <div className="text-gray-300 poppins-regular text-sm lg:text-md leading-relaxed">
+                            {generatedContent.split("\n\n").map((line, index) => {
                                if (line.startsWith("```")) {
                                 // Start of a code block
                                 return (
-                                    <div key={index} className="relative bg-black p-4 rounded-lg mt-4 overflow-auto">
+                                    <div key={index} className="relative bg-black p-4 rounded-lg mt-6 overflow-auto">
                                         <pre className="text-green-400 text-sm overflow-x-auto whitespace-pre-wrap">
                                             <code className="border">
                                                 {line.replace(/\`\`\`/g, "").trim()}
@@ -80,16 +80,18 @@ const Gameni = () => {
                                     return (
                                         <h2
                                             key={index}
-                                            className="text-lg lg:text-xl font-bold mt-4 underline"
+                                            className="text-sm lg:text-base font-bold mt-6 mb-4"
                                         >
                                             {line.replace(/\*\*/g, "")}
                                         </h2>
                                     );
-                                } else if (line.startsWith("*")) {
+                                }
+                                
+                                else if (line.startsWith("*")) {
                                     return (
                                         <li
                                             key={index}
-                                            className="ml-6 list-disc"
+                                            className="ml-6 list-disc mb-4"
                                         >
                                             {line.replace(/\*/g, "")}
                                         </li>
@@ -99,7 +101,7 @@ const Gameni = () => {
                                     return(
                                         <h1
                                             key={index}
-                                            className="text-2xl  font-bold mt-4 text-blue-600"
+                                            className="text-lg lg:text-xl font-bold mt-6 mb-6 text-blue-600"
                                         >
                                             {line.replace(/\#\#/g, "")}
                                         </h1>
@@ -109,7 +111,7 @@ const Gameni = () => {
                                     return null; // Skip empty lines
                                 } else {
                                     return (
-                                        <p key={index} className="mt-2">
+                                        <p key={index} className="mt-6 mb-6">
                                             {line}
                                         </p>
                                     );
