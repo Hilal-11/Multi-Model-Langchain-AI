@@ -18,7 +18,7 @@ const Gameni = () => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     
     const generateResponse = async () => {
-        const prompt = "What is LLMS and MCP Servers deeply explaination";
+        const prompt = "Fetch Api in react generate code to fetch the api data";
         try{
             const result = await model.generateContent(prompt);
             setGeneratedContent(result.response.text())
@@ -34,7 +34,7 @@ const Gameni = () => {
 
     
 
-
+    console.log(generatedContent)
 
     const handleUserInput = (event) => {
         setUserInput(event.target.value)
@@ -46,10 +46,6 @@ const Gameni = () => {
     }
 
 
-    console.log(generatedContent)
-
-
-
     return (
 
         <div>
@@ -58,17 +54,65 @@ const Gameni = () => {
                 <Header/>
             </div>
             {/* Quries secession */}
-            <div className="py-20 px-6 lg:py-40 lg:px-10">
-                    {response ? (
-                        <div>
-                            <p className="text-[14px]">{generatedContent}</p>
+            <div className="py-10 px-2 lg:py-30 lg:px-10">
+                {response ? (
+                    <div className="p-6 rounded-lg shadow-lg ">
+                        <div className="text-white poppins-regular text-sm lg:text-base leading-relaxed">
+                            {generatedContent.split("\n").map((line, index) => {
+                               if (line.startsWith("```")) {
+                                // Start of a code block
+                                return (
+                                    <div key={index} className="relative bg-black p-4 rounded-lg mt-4 overflow-auto">
+                                        <pre className="text-green-400 text-sm overflow-x-auto whitespace-pre-wrap">
+                                            <code className="border">
+                                                {line.replace(/\`\`\`/g, "").trim()}
+                                            </code>
+                                        </pre>
+                                    </div>
+                                );
+                                
+                                }
+                                else if (line.startsWith("```")) {
+                                    // End of a code block
+                                    return null; // Skip the closing backtick
+                                }
+                                 else if (line.startsWith("**")) {
+                                    return (
+                                        <h2
+                                            key={index}
+                                            className="text-lg lg:text-xl font-bold mt-4 underline"
+                                        >
+                                            {line.replace(/\*\*/g, "")}
+                                        </h2>
+                                    );
+                                } else if (line.startsWith("*")) {
+                                    return (
+                                        <li
+                                            key={index}
+                                            className="ml-6 list-disc"
+                                        >
+                                            {line.replace(/\*/g, "")}
+                                        </li>
+                                    );
+                                } else if (line.trim() === "") {
+                                    return null; // Skip empty lines
+                                } else {
+                                    return (
+                                        <p key={index} className="mt-2">
+                                            {line}
+                                        </p>
+                                    );
+                                }
+                            })}
                         </div>
-                    ) : (
-                        <div>
-                            <UserGreeting/>
-                        </div>
-                    )}
+                    </div>
+                ) : (
+                    <div>
+                        <UserGreeting />
+                    </div>
+                )}
             </div>
+
             {/* search box */}
             <motion.div
                 initial={{
