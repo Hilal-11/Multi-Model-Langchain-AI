@@ -8,7 +8,7 @@ import { IoSendSharp } from "react-icons/io5";
 import Loader from "../Loader";
 const Gameni = () => {
 
-    const [isLoading , setIsLoading] = useState(true)
+    const [isLoading , setIsLoading] = useState(false)
     const [isSend , setIsSend] = useState(false)
     const [userInput , setUserInput] = useState('')
     const [response, setResponse] = useState(false);
@@ -21,11 +21,13 @@ const Gameni = () => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     
     const generateResponse = async () => {
+        setIsLoading(true)
         const prompt = userPrompt;
         console.log(prompt)
         try{
             const result = await model.generateContent(prompt);
             setGeneratedContent(result.response.text())
+            setIsLoading(false)
         }catch (error) {
             console.error("Error generating content:", error);
         }
@@ -33,7 +35,6 @@ const Gameni = () => {
 
     useEffect(() => {   
         generateResponse()
-        
     } , [])
 
     console.log(generatedContent)
@@ -124,8 +125,10 @@ const Gameni = () => {
                     </div>
                 ) : (
                     <div>
-                        {/* <UserGreeting /> */}
-                        <Loader />
+                        {
+                            (!isLoading) ? (<UserGreeting />) : ( <Loader />)
+                        }
+                        
                     </div>
                 )}
             </div>
