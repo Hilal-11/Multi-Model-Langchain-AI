@@ -18,7 +18,7 @@ const Gameni = () => {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     
     const generateResponse = async () => {
-        const prompt = "Fetch Api in react generate code to fetch the api data";
+        const prompt = "Explain Quntam Computer and how it works , how it's different than classical computers deeply explaination.";
         try{
             const result = await model.generateContent(prompt);
             setGeneratedContent(result.response.text())
@@ -94,7 +94,18 @@ const Gameni = () => {
                                             {line.replace(/\*/g, "")}
                                         </li>
                                     );
-                                } else if (line.trim() === "") {
+                                }
+                                else if (line.startsWith("##")){
+                                    return(
+                                        <h1
+                                            key={index}
+                                            className="text-2xl  font-bold mt-4 text-blue-600"
+                                        >
+                                            {line.replace(/\#\#/g, "")}
+                                        </h1>
+                                    )
+                                }
+                                else if (line.trim() === "") {
                                     return null; // Skip empty lines
                                 } else {
                                     return (
