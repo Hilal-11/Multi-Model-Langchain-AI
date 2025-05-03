@@ -74,7 +74,6 @@ const Gameni = () => {
                                         </pre>
                                     </div>
                                 );
-                                
                                 }
                                 else if (line.startsWith("```")) {
                                     // End of a code block
@@ -90,7 +89,6 @@ const Gameni = () => {
                                         </h2>
                                     );
                                 }
-                                
                                 else if (line.startsWith("*")) {
                                     return (
                                         <li
@@ -126,7 +124,7 @@ const Gameni = () => {
                 ) : (
                     <div>
                         {
-                            (!isLoading) ? (<UserGreeting />) : ( <Loader />)
+                            (!isLoading) ? (<UserGreeting />) : ( <Loader  />)
                         }
                         
                     </div>
