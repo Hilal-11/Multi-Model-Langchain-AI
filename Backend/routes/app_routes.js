@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router();
 
 
-const signUp = require('../controllers/');
-const login = require('../controllers/');
-const logout = require('../controllers/');
-const userDetails = require('../controllers/')
+const signUp = require('../controllers/signUp');
+const login = require('../controllers/login');
+const logout = require('../controllers/logout');
+const userDetails = require('../controllers/getUserDetails')
 
 
 router.post('/signUp', signUp);
